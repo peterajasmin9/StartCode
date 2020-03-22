@@ -10,7 +10,7 @@ foreach ($adapter in $adapters)
     New-Item -itemtype file -path "C:\Data\Adapter-$Name.txt" -Force
     Start-Sleep 1
 
-    $adapter | format-list * | Add-Content "C:\Data\Adapter-$Name.txt" -Append
+    $adapter | format-list * | Add-Content "C:\Data\Adapter-$Name.txt"
     Start-Sleep 1
     
     $IPinfo = " "
@@ -20,9 +20,9 @@ foreach ($adapter in $adapters)
     Add-Content -Path "C:\Data\Adapter-$Name.txt" -Value "IP information"
     Add-Content -Path "C:\Data\Adapter-$Name.txt" -Value " "
 
-    $IPinfo | Out-File -FilePath "C:\Data\Adapter-$Name.txt" -Append
+    $IPinfo | Add-Content "C:\Data\Adapter-$Name.txt" -Append
     Start-Sleep 1
-    
+
     Start-Process -FilePath notepad.exe -ArgumentList "C:\Data\Adapter-$Name.txt"
 
 }
